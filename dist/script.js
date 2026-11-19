@@ -97,18 +97,38 @@ let currentClip = 0;
 let heroVisible = false;
 let playHero = !reducedMotion.matches;
 
+function setHeroPlayback(enabled) {
+  playHero = enabled;
+  heroToggle.textContent = enabled ? "Pausar" : "Reproducir";
+  syncHeroPlayback();
+}
+
 function syncHeroPlayback() {
-  if (playHero && heroVisible && !document.hidden) {
-    heroVideo.play().catch(() => {});
-  } else {
+  if (!playHero || !heroVisible || document.hidden) {
     heroVideo.pause();
+    return;
   }
+
+  const source = heroVideo.src;
+  heroVideo.play().catch((error) => {
+    if (error.name !== "AbortError" && heroVideo.src === source) setHeroPlayback(false);
+  });
+}
+
+function updateHeroProgress() {
+  const { currentSrc, src, currentTime, duration } = heroVideo;
+  if (currentSrc !== src || !Number.isFinite(duration) || duration <= 0) return;
+
+  const progress = Math.min(1, currentTime / duration);
+  clipButtons[currentClip].style.setProperty("--clip-progress", progress);
 }
 
 function selectClip(index) {
   if (index === currentClip) return;
 
-  clipButtons[currentClip].removeAttribute("aria-current");
+  const previous = clipButtons[currentClip];
+  previous.removeAttribute("aria-current");
+  previous.style.removeProperty("--clip-progress");
   currentClip = index;
   const selected = clipButtons[currentClip];
   const clip = selected.dataset.heroClip;
@@ -120,6 +140,7 @@ function selectClip(index) {
   syncHeroPlayback();
 }
 
+setHeroPlayback(playHero);
 heroControls.hidden = false;
 clipButtons.forEach((button, index) => {
   button.addEventListener("click", () => selectClip(index));
@@ -134,21 +155,14 @@ clipButtons.forEach((button, index) => {
   });
 });
 
-heroToggle.addEventListener("click", () => {
-  playHero = heroVideo.paused;
-  syncHeroPlayback();
-});
-
-heroVideo.addEventListener("play", () => { heroToggle.textContent = "Pausar"; });
-heroVideo.addEventListener("pause", () => { heroToggle.textContent = "Reproducir"; });
+heroToggle.addEventListener("click", () => setHeroPlayback(!playHero));
+heroVideo.addEventListener("timeupdate", updateHeroProgress);
+heroVideo.addEventListener("pause", updateHeroProgress);
 heroVideo.addEventListener("ended", () => {
   if (playHero) selectClip((currentClip + 1) % clipButtons.length);
 });
 
-reducedMotion.addEventListener("change", (event) => {
-  playHero = !event.matches;
-  syncHeroPlayback();
-});
+reducedMotion.addEventListener("change", (event) => setHeroPlayback(!event.matches));
 document.addEventListener("visibilitychange", syncHeroPlayback);
 
 const heroObserver = new IntersectionObserver(([entry]) => {
@@ -157,3 +171,48 @@ const heroObserver = new IntersectionObserver(([entry]) => {
 }, { threshold: 0.15 });
 
 heroObserver.observe(hero);
+
+const caseViewer = document.querySelector("#case-viewer");
+
+if (typeof caseViewer.showModal === "function") {
+  const caseLinks = Array.from(document.querySelectorAll(".case-image-link"));
+  const viewerImage = caseViewer.querySelector(".case-viewer-image");
+  const viewerTitle = caseViewer.querySelector("#case-viewer-title");
+  const viewerPosition = caseViewer.querySelector("#case-viewer-position");
+  let activeCase = 0;
+  let openedFrom;
+
+  function showCase(index) {
+    activeCase = (index + caseLinks.length) % caseLinks.length;
+    const link = caseLinks[activeCase];
+    viewerImage.src = link.href;
+    viewerImage.alt = link.querySelector("img").alt;
+    viewerTitle.textContent = link.closest(".case-card").querySelector("h3").textContent;
+    viewerPosition.textContent = `${activeCase + 1} de ${caseLinks.length}`;
+  }
+
+  caseLinks.forEach((link, index) => {
+    link.setAttribute("aria-haspopup", "dialog");
+    link.addEventListener("click", (event) => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+
+      event.preventDefault();
+      openedFrom = link;
+      showCase(index);
+      caseViewer.showModal();
+    });
+  });
+
+  caseViewer.querySelector(".case-viewer-prev").addEventListener("click", () => showCase(activeCase - 1));
+  caseViewer.querySelector(".case-viewer-next").addEventListener("click", () => showCase(activeCase + 1));
+  caseViewer.addEventListener("keydown", (event) => {
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+
+    event.preventDefault();
+    showCase(activeCase + (event.key === "ArrowRight" ? 1 : -1));
+  });
+  caseViewer.addEventListener("click", (event) => {
+    if (event.target === caseViewer) caseViewer.close();
+  });
+  caseViewer.addEventListener("close", () => openedFrom.focus({ preventScroll: true }));
+}

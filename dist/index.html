@@ -129,35 +129,45 @@
         </div>
         <div class="case-grid">
           <article class="case-card">
-            <img src="./assets/caso-constancia.webp" alt="Fotos de la espalda del cliente antes y después de seis meses" width="760" height="956" loading="lazy" decoding="async">
+            <a class="case-image-link" href="./assets/caso-constancia.webp" aria-label="Ampliar comparativa de seis meses">
+              <img src="./assets/caso-constancia.webp" alt="Fotos de la espalda del cliente antes y después de seis meses" width="760" height="956" loading="lazy" decoding="async">
+            </a>
             <div class="case-copy">
               <h3>Seis meses de constancia</h3>
               <p>Priorizó su alimentación y fue muy disciplinado con el entrenamiento.</p>
             </div>
           </article>
           <article class="case-card">
-            <img src="./assets/caso-octubre.webp" alt="Dos fotos de perfil de la clienta, tomadas en octubre y diciembre" width="760" height="956" loading="lazy" decoding="async">
+            <a class="case-image-link" href="./assets/caso-octubre.webp" aria-label="Ampliar comparativa de octubre a diciembre">
+              <img src="./assets/caso-octubre.webp" alt="Dos fotos de perfil de la clienta, tomadas en octubre y diciembre" width="760" height="956" loading="lazy" decoding="async">
+            </a>
             <div class="case-copy">
               <h3>De octubre a diciembre</h3>
               <p>Sentía que no avanzaba, así que confió en mi guía para superar sus obstáculos.</p>
             </div>
           </article>
           <article class="case-card">
-            <img src="./assets/caso-tres-meses.webp" alt="Fotos de la espalda de la clienta en el gimnasio, tomadas en octubre y diciembre" width="760" height="956" loading="lazy" decoding="async">
+            <a class="case-image-link" href="./assets/caso-tres-meses.webp" aria-label="Ampliar comparativa de tres meses">
+              <img src="./assets/caso-tres-meses.webp" alt="Fotos de la espalda de la clienta en el gimnasio, tomadas en octubre y diciembre" width="760" height="956" loading="lazy" decoding="async">
+            </a>
             <div class="case-copy">
               <h3>Tres meses de progreso</h3>
               <p>Tres meses después, logró lo que tanto deseaba.</p>
             </div>
           </article>
           <article class="case-card">
-            <img src="./assets/caso-peso.webp" alt="Retratos del cliente junto a los pesos publicados de 111 y 101 kg" width="760" height="956" loading="lazy" decoding="async">
+            <a class="case-image-link" href="./assets/caso-peso.webp" aria-label="Ampliar comparativa de 111 a 101 kg">
+              <img src="./assets/caso-peso.webp" alt="Retratos del cliente junto a los pesos publicados de 111 y 101 kg" width="760" height="956" loading="lazy" decoding="async">
+            </a>
             <div class="case-copy">
               <h3>De 111 a 101 kg</h3>
               <p>Antes 111 kg · Después 101 kg</p>
             </div>
           </article>
           <article class="case-card">
-            <img src="./assets/caso-habitos.webp" alt="Fotos de noviembre y febrero junto a los pesos publicados de 120 y 99 kg" width="760" height="956" loading="lazy" decoding="async">
+            <a class="case-image-link" href="./assets/caso-habitos.webp" aria-label="Ampliar comparativa de noviembre a febrero">
+              <img src="./assets/caso-habitos.webp" alt="Fotos de noviembre y febrero junto a los pesos publicados de 120 y 99 kg" width="760" height="956" loading="lazy" decoding="async">
+            </a>
             <div class="case-copy">
               <h3>De noviembre a febrero</h3>
               <p>Pasó de la comida rápida y el sedentarismo a entrenar con disciplina.</p>
@@ -166,6 +176,23 @@
         </div>
       </div>
     </section>
+
+    <dialog class="case-viewer" id="case-viewer" aria-labelledby="case-viewer-title">
+      <header class="case-viewer-header">
+        <div aria-live="polite" aria-atomic="true">
+          <h2 id="case-viewer-title">Testimonios y resultados</h2>
+          <p id="case-viewer-position"></p>
+        </div>
+        <form method="dialog">
+          <button type="submit" class="case-viewer-control case-viewer-close" aria-label="Cerrar visor" autofocus>×</button>
+        </form>
+      </header>
+      <div class="case-viewer-stage">
+        <button type="button" class="case-viewer-control case-viewer-prev" aria-label="Imagen anterior"></button>
+        <img class="case-viewer-image" src="./assets/caso-constancia.webp" alt="" width="760" height="956" loading="lazy">
+        <button type="button" class="case-viewer-control case-viewer-next" aria-label="Siguiente imagen"></button>
+      </div>
+    </dialog>
 
     <section class="faq light-section" id="preguntas" aria-labelledby="titulo-faq">
       <div class="shell faq-grid">
