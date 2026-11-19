@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="es-VE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101010">
+  <meta name="description" content="Entrenamiento personalizado con Alirio Acosta. Consulta por rutinas en casa, en el gimnasio y orientación alimentaria, con seguimiento individual por chat.">
+  <meta property="og:title" content="Alirio Training | Entrena con un plan">
+  <meta property="og:description" content="Entrenamiento personalizado online y presencial con Alirio Acosta.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="./assets/marca.png" type="image/png">
+  <link rel="preload" href="./assets/barlow-condensed.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./script.js" defer></script>
+  <title>Alirio Training | Entrenamiento personalizado con Alirio Acosta</title>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#inicio" aria-label="Alirio Training, inicio">
+        <img src="./assets/marca.png" width="48" height="35" alt="">
+        <span>ALIRIO<span class="brand-line">TRAINING</span></span>
+      </a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="navegacion" hidden>Menú <span aria-hidden="true">+</span></button>
+      <nav id="navegacion" class="navigation" aria-label="Navegación principal">
+        <a href="#asesorias">Asesorías</a>
+        <a href="#alirio">Sobre Alirio</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#preguntas">Preguntas frecuentes</a>
+      </nav>
+      <a class="button button-outline header-cta" href="#consulta">Consultar <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" id="inicio" aria-labelledby="titulo">
+      <div class="hero-art">
+        <video id="hero-video" class="hero-video" data-clip="peso" src="./assets/hero-pesas.mp4" poster="./assets/hero-pesas-poster.webp" preload="none" muted playsinline aria-hidden="true" tabindex="-1"></video>
+      </div>
+      <div class="shell hero-inner">
+        <p class="kicker hero-kicker"><span aria-hidden="true"></span> Entrenamiento personalizado</p>
+        <h1 id="titulo">ENTRENA<span>CON UN PLAN.</span></h1>
+        <p class="hero-description">Rutinas para casa o gimnasio, orientación alimentaria y seguimiento individual con Alirio Acosta.</p>
+        <div class="hero-actions">
+          <a class="button button-light" href="#consulta">Consultar asesoría <span aria-hidden="true">↗</span></a>
+          <a class="hero-secondary" href="#asesorias">Ver asesorías <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="shell hero-controls-wrap" id="hero-controls" hidden>
+        <div class="hero-controls" role="group" aria-label="Videos de portada">
+          <div class="hero-clips" role="group" aria-label="Elegir video">
+            <button type="button" data-hero-clip="peso" aria-label="Entrenamiento con barra" aria-current="true"></button>
+            <button type="button" data-hero-clip="dominadas" aria-label="Dominadas"></button>
+            <button type="button" data-hero-clip="press" aria-label="Ejercicio en máquina"></button>
+          </div>
+          <button class="hero-toggle" type="button" id="hero-toggle">Reproducir</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="facts">
+      <dl class="shell facts-grid">
+        <div><dt>Experiencia como entrenador</dt><dd>4 años</dd></div>
+        <div><dt>Modalidades de asesoría</dt><dd>Online y presencial</dd></div>
+        <div><dt>Seguimiento por chat</dt><dd>Individual</dd></div>
+      </dl>
+    </div>
+
+    <section class="services light-section" id="asesorias" aria-labelledby="titulo-asesorias">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">Asesorías</p>
+            <h2 id="titulo-asesorias">¿Qué quieres trabajar?</h2>
+          </div>
+          <p>Cuéntame tu objetivo y dónde entrenas. A partir de ahí elegimos la asesoría que mejor encaje contigo.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <img class="service-image gym-image" src="./assets/gimnasio.webp" alt="Alirio haciendo fondos en barras paralelas" loading="lazy" width="960" height="640">
+            <div class="service-body">
+              <h3>Rutina en gimnasio</h3>
+              <p>Trabaja tu fuerza y tu técnica con ejercicios adaptados a tu nivel. Puedes consultar por entrenamiento presencial en Maracaibo o asesoría online.</p>
+              <a class="text-link" href="#consulta" data-service="gimnasio">Consultar rutina de gimnasio <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="service-card">
+            <img class="service-image home-image" src="./assets/flexiones.webp" alt="Alirio practicando una flexión en el suelo" loading="lazy" width="720" height="1280">
+            <div class="service-body">
+              <h3>Rutina en casa</h3>
+              <p>Entrena con una rutina pensada para tu espacio, tu equipo y el tiempo que tienes disponible, con seguimiento individual por chat.</p>
+              <a class="text-link" href="#consulta" data-service="casa">Consultar rutina en casa <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="nutrition-art" aria-hidden="true"><span></span></div>
+            <div class="service-body">
+              <h3>Orientación alimentaria</h3>
+              <p>Recibe orientación sobre hábitos de alimentación que puedas incorporar a tu día a día y que acompañen tu entrenamiento.</p>
+              <a class="text-link" href="#consulta" data-service="alimentacion">Consultar sobre alimentación <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="coach" id="alirio" aria-labelledby="titulo-alirio">
+      <div class="shell coach-grid">
+        <div class="coach-media">
+          <video id="coach-video" src="./assets/tecnica.mp4" poster="./assets/tecnica-poster.webp" controls muted playsinline preload="none" aria-label="Alirio realizando jalones en polea, video sin audio"></video>
+        </div>
+        <div class="coach-copy">
+          <p class="kicker">Tu entrenador</p>
+          <h2 id="titulo-alirio">Alirio Acosta</h2>
+          <p>Soy entrenador personal certificado. Te ayudo a organizar tu entrenamiento según tu nivel y tus objetivos, tanto si estás empezando como si ya llevas tiempo entrenando.</p>
+          <ol class="steps">
+            <li><div><strong>Cuéntame qué quieres lograr</strong><p>Hablamos de tu objetivo, tu experiencia y dónde prefieres entrenar.</p></div></li>
+            <li><div><strong>Elige cómo empezar</strong><p>Acordamos la asesoría y si la prefieres por cita o por suscripción.</p></div></li>
+            <li><div><strong>Hacemos seguimiento por chat</strong><p>Conversamos de forma individual sobre tu progreso y tus dudas.</p></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="results" id="testimonios" aria-labelledby="titulo-testimonios">
+      <div class="shell">
+        <div class="results-inner">
+          <h2 id="titulo-testimonios">Testimonios y resultados</h2>
+          <a class="button button-outline" href="https://www.instagram.com/alirio.trainer/p/DSVyuitkerO/" target="_blank" rel="noopener noreferrer">Ver publicación original</a>
+        </div>
+        <div class="case-grid">
+          <article class="case-card">
+            <img src="./assets/caso-constancia.webp" alt="Fotos de la espalda del cliente antes y después de seis meses" width="760" height="956" loading="lazy" decoding="async">
+            <div class="case-copy">
+              <h3>Seis meses de constancia</h3>
+              <p>Priorizó su alimentación y fue muy disciplinado con el entrenamiento.</p>
+            </div>
+          </article>
+          <article class="case-card">
+            <img src="./assets/caso-octubre.webp" alt="Dos fotos de perfil de la clienta, tomadas en octubre y diciembre" width="760" height="956" loading="lazy" decoding="async">
+            <div class="case-copy">
+              <h3>De octubre a diciembre</h3>
+              <p>Sentía que no avanzaba, así que confió en mi guía para superar sus obstáculos.</p>
+            </div>
+          </article>
+          <article class="case-card">
+            <img src="./assets/caso-tres-meses.webp" alt="Fotos de la espalda de la clienta en el gimnasio, tomadas en octubre y diciembre" width="760" height="956" loading="lazy" decoding="async">
+            <div class="case-copy">
+              <h3>Tres meses de progreso</h3>
+              <p>Tres meses después, logró lo que tanto deseaba.</p>
+            </div>
+          </article>
+          <article class="case-card">
+            <img src="./assets/caso-peso.webp" alt="Retratos del cliente junto a los pesos publicados de 111 y 101 kg" width="760" height="956" loading="lazy" decoding="async">
+            <div class="case-copy">
+              <h3>De 111 a 101 kg</h3>
+              <p>Antes 111 kg · Después 101 kg</p>
+            </div>
+          </article>
+          <article class="case-card">
+            <img src="./assets/caso-habitos.webp" alt="Fotos de noviembre y febrero junto a los pesos publicados de 120 y 99 kg" width="760" height="956" loading="lazy" decoding="async">
+            <div class="case-copy">
+              <h3>De noviembre a febrero</h3>
+              <p>Pasó de la comida rápida y el sedentarismo a entrenar con disciplina.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq light-section" id="preguntas" aria-labelledby="titulo-faq">
+      <div class="shell faq-grid">
+        <div>
+          <p class="kicker">Antes de empezar</p>
+          <h2 id="titulo-faq">Preguntas<br> frecuentes</h2>
+        </div>
+        <div class="faq-items">
+          <details>
+            <summary>¿Puedo empezar si nunca he entrenado?</summary>
+            <p>Sí. Cuéntame qué experiencia tienes y con qué equipo cuentas para adaptar la rutina a tu punto de partida.</p>
+          </details>
+          <details>
+            <summary>¿Cómo funciona la asesoría online?</summary>
+            <p>Trabajamos con una rutina adaptada a tu objetivo. El seguimiento de tus cambios y dudas se hace de forma individual por chat.</p>
+          </details>
+          <details>
+            <summary>¿Dónde y en qué horario puedo entrenar presencialmente?</summary>
+            <p>La atención presencial es en Maracaibo. Mi horario de atención es de 6:00 a. m. a 9:00 p. m., hora de Venezuela. Escríbeme para confirmar la sede y los horarios disponibles.</p>
+          </details>
+          <details>
+            <summary>¿Cómo consulto precios y opciones de pago?</summary>
+            <p>Escríbeme para consultar el precio de la cita o suscripción que te interese. Puedes pagar por Pago Móvil, en efectivo o por Binance.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="consulta" aria-labelledby="titulo-consulta">
+      <div class="shell contact-grid">
+        <div>
+          <p class="kicker">Contacto</p>
+          <h2 id="titulo-consulta">Hablemos de<br>tu objetivo.</h2>
+          <p>Escríbeme por WhatsApp o prepara aquí una consulta sobre la asesoría que te interesa.</p>
+          <div class="contact-links">
+            <a class="button button-light" id="whatsapp-contacto" href="https://wa.me/584146724381" target="_blank" rel="noopener noreferrer">WhatsApp · +58 414-6724381 <span aria-hidden="true">↗</span></a>
+            <a class="direct-link" href="https://ig.me/m/alirio.trainer" target="_blank" rel="noopener noreferrer">@alirio.trainer en Instagram <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <form class="contact-form" id="mensaje-form" hidden>
+          <label for="servicio">¿Qué te interesa?</label>
+          <select id="servicio" name="servicio" required>
+            <option value="" selected disabled>Elige una asesoría</option>
+            <option value="gimnasio">Rutina en gimnasio</option>
+            <option value="casa">Rutina en casa</option>
+            <option value="alimentacion">Orientación alimentaria</option>
+            <option value="general">Todavía no lo sé</option>
+          </select>
+          <label for="objetivo">Tu objetivo <span>(opcional)</span></label>
+          <textarea id="objetivo" name="objetivo" rows="3" maxlength="240" placeholder="Por ejemplo, quiero ganar fuerza y entrenar en casa."></textarea>
+          <button class="button button-dark" type="submit">Preparar mensaje <span aria-hidden="true">↗</span></button>
+          <div class="message-preview" id="mensaje-preview" hidden>
+            <label for="borrador">Tu mensaje para WhatsApp</label>
+            <textarea id="borrador" rows="4" readonly></textarea>
+            <div class="message-actions">
+              <a class="button button-dark" id="whatsapp-mensaje" target="_blank" rel="noopener noreferrer">Abrir WhatsApp <span aria-hidden="true">↗</span></a>
+              <button class="button button-dark-outline" type="button" id="copiar-mensaje">Copiar mensaje</button>
+            </div>
+            <p id="mensaje-estado" role="status"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <a class="brand" href="#inicio" aria-label="Alirio Training, volver al inicio">
+        <img src="./assets/marca.png" width="44" height="32" alt="">
+        <span>ALIRIO<span class="brand-line">TRAINING</span></span>
+      </a>
+      <p>Alirio Acosta · Maracaibo, Venezuela</p>
+      <nav aria-label="Redes sociales">
+        <a href="https://www.instagram.com/alirio.trainer/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a>
+        <a href="https://www.tiktok.com/@alirio05" target="_blank" rel="noopener noreferrer">TikTok <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
