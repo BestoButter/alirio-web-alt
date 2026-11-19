@@ -86,7 +86,6 @@ const heroVideo = document.querySelector("#hero-video");
 const heroControls = document.querySelector("#hero-controls");
 const heroToggle = document.querySelector("#hero-toggle");
 const clipButtons = Array.from(heroControls.querySelectorAll("[data-hero-clip]"));
-const coachVideo = document.querySelector("#coach-video");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const clipFiles = {
   peso: "hero-pesas",
@@ -149,21 +148,12 @@ heroVideo.addEventListener("ended", () => {
 reducedMotion.addEventListener("change", (event) => {
   playHero = !event.matches;
   syncHeroPlayback();
-  if (event.matches) coachVideo.pause();
 });
 document.addEventListener("visibilitychange", syncHeroPlayback);
 
-const videoObserver = new IntersectionObserver((entries) => {
-  for (const entry of entries) {
-    if (entry.target === hero) {
-      heroVisible = entry.isIntersecting;
-      syncHeroPlayback();
-    } else if (entry.isIntersecting && !reducedMotion.matches) {
-      coachVideo.play().catch(() => {});
-      videoObserver.unobserve(coachVideo);
-    }
-  }
+const heroObserver = new IntersectionObserver(([entry]) => {
+  heroVisible = entry.isIntersecting;
+  syncHeroPlayback();
 }, { threshold: 0.15 });
 
-videoObserver.observe(hero);
-videoObserver.observe(coachVideo);
+heroObserver.observe(hero);
